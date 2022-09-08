@@ -8,6 +8,7 @@ function getComputerChoice() {
     randomOutput = "Scissors";
   } else {
     randomOutput = "Paper";
+    return randomOutput;
   }
 }
 getComputerChoice();
@@ -20,37 +21,37 @@ console.log("Computer choose " + computerSelection);
 
 function singleRound() {
   if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
-    console.log("Draw!");
+    return "Draw!";
   } else if (
     (playerSelection.toLowerCase() == "rock") &
     (computerSelection.toLowerCase() == "scissors")
   ) {
-    console.log("You win!");
+    return "You win!";
   } else if (
     (playerSelection.toLowerCase() == "rock") &
     (computerSelection.toLowerCase() == "paper")
   ) {
-    console.log("You lose!");
+    return "You lose!";
   } else if (
     (playerSelection.toLowerCase() == "paper") &
     (computerSelection.toLowerCase() == "rock")
   ) {
-    console.log("You win!");
+    return "You win!";
   } else if (
     (playerSelection.toLowerCase() == "paper") &
     (computerSelection.toLowerCase() == "scissors")
   ) {
-    console.log("You lose!");
+    return "You lose!";
   } else if (
     (playerSelection.toLowerCase() == "scissors") &
     (computerSelection.toLowerCase() == "rock")
   ) {
-    console.log("You lose!");
+    return "You lose!";
   } else if (
     (playerSelection.toLowerCase() == "scissors") &
     (computerSelection.toLowerCase() == "paper")
   ) {
-    console.log("You win!");
+    return "You win!";
   }
 }
 singleRound();
