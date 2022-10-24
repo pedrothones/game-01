@@ -6,7 +6,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
   </head>
-  <body></body>
+  <style>
+    * {
+      padding: 0px;
+      margin: 0px;
+    }
+    .playerSelection {
+      margin: 20px;
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+    }
+    .results,
+    .selection {
+      border: solid 2px wheat;
+      padding: 20px;
+    }
+    .roundResult {
+      font-size: 40px;
+      display: flex;
+      justify-content: center;
+    }
+    .results p {
+      display: flex;
+    }
+    .selection {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .score {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .results :first-child {
+      color: red;
+    }
+
+    .playerChoice,
+    .computerChoice,
+    .playerScore,
+    .computerScore,
+    .drawScore {
+      color: gold;
+    }
+    button {
+      padding: 20px;
+    }
+  </style>
+  <body>
+    <div class="gameContainer">
+      <div class="playerSelection">
+        <button id="rock" class="rock">Rock</button>
+        <button id="paper" class="paper">Paper</button>
+        <button id="scissors" class="scissors">Scissors</button>
+      </div>
+      <!-- selection -->
+      <div class="selection">
+        <div class="pcChoiceContainer">
+          <p>PC chose:</p>
+          <div class="computerChoice"></div>
+        </div>
+        <div class="playerChoiceContainer">
+          <p>Player chose:</p>
+          <div class="playerChoice"></div>
+        </div>
+      </div>
+      <!-- round result -->
+      <div class="roundResult"></div>
+      <div class="results">
+        <div>The score is</div>
+        <div class="score">
+          <p>PC:</p>
+          <div class="computerScore">0</div>
+          <p>Player:</p>
+          <div class="playerScore">0</div>
+          <p>Draw:</p>
+          <div class="drawScore">0</div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -1,7 +1,5 @@
 function getComputerChoice() {
   randomNumber = Math.random() * 10;
-
-  //mudar pra *10 para comecar jogo
   if (randomNumber <= 3.33) {
     return (randomOutput = "Rock");
   } else if (randomNumber >= 6.66) {
@@ -10,12 +8,14 @@ function getComputerChoice() {
     return (randomOutput = "Paper");
   }
 }
-// let computerSelection = randomOutput;
 let result = "";
 function singleRound() {
+  let playerScore = 0;
   getComputerChoice();
   computerSelection = randomOutput;
-  playerSelection = prompt("Rock, paper os scissors?");
+  document.querySelector(".computerChoice").innerText = computerSelection;
+  document.querySelector(".playerChoice").innerText = playerSelection;
+  // playerSelection = prompt("Rock, paper os scissors?");
 
   if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
     result = "Draw!";
@@ -50,9 +50,21 @@ function singleRound() {
   ) {
     result = "You lose!";
   }
+  document.querySelector(".roundResult").innerHTML = result;
+
+  if (result == "You win!") {
+    document.querySelector(".roundResult").style.color = "green";
+    playerScore += 1;
+    document.querySelector(".playerScore").innerText = playerScore;
+  } else if (result == "You lose!") {
+    document.querySelector(".roundResult").style.color = "red";
+  } else {
+    document.querySelector(".roundResult").style.color = "violet";
+  }
+  //checking result to change element style and to update score
 }
 
-function game() {
+function playFiveRounds() {
   for (i = 0; i < 5; i++) {
     singleRound();
     console.log("You choose " + playerSelection);
@@ -60,4 +72,24 @@ function game() {
     console.log(result);
   }
 }
-game();
+
+const rockButton = document.querySelector(".rock");
+const paperButton = document.querySelector(".paper");
+const scissorsButton = document.querySelector(".scissors");
+
+rockButton.addEventListener("click", () => {
+  playerSelection = "Rock";
+  singleRound();
+
+  console.log(result);
+});
+paperButton.addEventListener("click", () => {
+  playerSelection = "Paper";
+  singleRound();
+  console.log(result);
+});
+scissorsButton.addEventListener("click", () => {
+  playerSelection = "Scissors";
+  singleRound();
+  console.log(result);
+});
