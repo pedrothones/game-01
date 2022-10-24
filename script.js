@@ -1,3 +1,36 @@
+const rockButton = document.querySelector(".rock");
+const paperButton = document.querySelector(".paper");
+const scissorsButton = document.querySelector(".scissors");
+const buttonArray = [rockButton, paperButton, scissorsButton];
+
+let counter = 0;
+let result = "";
+let playerScore = 0;
+let computerScore = 0;
+let drawScore = 0;
+
+rockButton.addEventListener("click", () => {
+  playerSelection = "Rock";
+  singleRound();
+
+  console.log(result);
+});
+paperButton.addEventListener("click", () => {
+  playerSelection = "Paper";
+  singleRound();
+  console.log(result);
+});
+scissorsButton.addEventListener("click", () => {
+  playerSelection = "Scissors";
+  singleRound();
+  console.log(result);
+});
+// buttonArray.forEach((item) => {
+//   item.addEventListener("click", () => {
+//     playerScore += 1;
+//     document.querySelector(".playerScore").innerText = playerScore;
+//   });
+// });
 function getComputerChoice() {
   randomNumber = Math.random() * 10;
   if (randomNumber <= 3.33) {
@@ -8,9 +41,7 @@ function getComputerChoice() {
     return (randomOutput = "Paper");
   }
 }
-let result = "";
 function singleRound() {
-  let playerScore = 0;
   getComputerChoice();
   computerSelection = randomOutput;
   document.querySelector(".computerChoice").innerText = computerSelection;
@@ -52,16 +83,32 @@ function singleRound() {
   }
   document.querySelector(".roundResult").innerHTML = result;
 
+  console.log(playerScore);
+
   if (result == "You win!") {
     document.querySelector(".roundResult").style.color = "green";
     playerScore += 1;
     document.querySelector(".playerScore").innerText = playerScore;
   } else if (result == "You lose!") {
     document.querySelector(".roundResult").style.color = "red";
+    computerScore += 1;
+    document.querySelector(".computerScore").innerText = computerScore;
   } else {
     document.querySelector(".roundResult").style.color = "violet";
+    drawScore += 1;
+    document.querySelector(".drawScore").innerText = drawScore;
   }
   //checking result to change element style and to update score
+
+  if (playerScore == 5) {
+    alert("You won!!! Congratz!!!");
+    document.location.reload();
+  }
+
+  if (computerScore == 5) {
+    alert("PC won!!! You suck!!!");
+    document.location.reload();
+  }
 }
 
 function playFiveRounds() {
@@ -72,24 +119,12 @@ function playFiveRounds() {
     console.log(result);
   }
 }
+// if (playerScore == 5) {
+//   alert("You won!!! Congratz!!!!!!!!!!!");
+// }
 
-const rockButton = document.querySelector(".rock");
-const paperButton = document.querySelector(".paper");
-const scissorsButton = document.querySelector(".scissors");
+// if (computerScore == 5) {
+//   alert("PC won!!! You suck!!!");
+// }
 
-rockButton.addEventListener("click", () => {
-  playerSelection = "Rock";
-  singleRound();
-
-  console.log(result);
-});
-paperButton.addEventListener("click", () => {
-  playerSelection = "Paper";
-  singleRound();
-  console.log(result);
-});
-scissorsButton.addEventListener("click", () => {
-  playerSelection = "Scissors";
-  singleRound();
-  console.log(result);
-});
+//checking to see which player reaches 5 first to announce the winner
