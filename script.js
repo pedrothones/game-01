@@ -2,6 +2,7 @@ const rockButton = document.querySelector(".rock");
 const paperButton = document.querySelector(".paper");
 const scissorsButton = document.querySelector(".scissors");
 const buttonArray = [rockButton, paperButton, scissorsButton];
+const exclamation = document.querySelector(".exclamation");
 
 let counter = 0;
 let result = "";
@@ -119,12 +120,9 @@ function playFiveRounds() {
     console.log(result);
   }
 }
-// if (playerScore == 5) {
-//   alert("You won!!! Congratz!!!!!!!!!!!");
-// }
-
-// if (computerScore == 5) {
-//   alert("PC won!!! You suck!!!");
-// }
-
-//checking to see which player reaches 5 first to announce the winner
+exclamation.addEventListener("mouseenter", () => {
+  exclamation.style.borderColor = "lightgray";
+});
+exclamation.addEventListener("mouseleave", () => {
+  exclamation.style.borderColor = "white";
+});
