@@ -12,19 +12,25 @@
       padding: 0px;
       margin: 0px;
     }
+    .gameContainer{
+      margin: 20px;
+      padding: 20px;
+    }
     .playerSelection {
       margin: 20px;
       display: flex;
-
       justify-content: center;
       align-items: center;
+      gap: 50px;
     }
     .results,
     .selection {
       border: solid 2px wheat;
       padding: 20px;
     }
-    .roundResult {
+
+    .roundResult,
+    .scoreHeader {
       font-size: 40px;
       display: flex;
       justify-content: center;
@@ -44,10 +50,6 @@
       align-items: center;
     }
 
-    .results :first-child {
-      color: red;
-    }
-
     .playerChoice,
     .computerChoice,
     .playerScore,
@@ -58,36 +60,48 @@
     button {
       padding: 20px;
       cursor: pointer;
-    }
-    .infobox {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      margin: 8px;
-    }
-    .exclamation {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 12px;
-      margin: 0px;
-      border: solid white 1px;
-      /* background-color: lightgray; */
+      font-size: 40px;
+      border: solid white 4Q;
       color: white;
       border-radius: 50%;
       font-weight: bolder;
+      height: 100px;
+      width: 100px;
+    }
+    .infoButton {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .exclamation {
+
+      padding: 12px;
+      margin: 0px;
+      border: solid white 3Q;
       font-size: 20px;
       height: 30px;
       width: 30px;
+    }
+    .modal{
+      position: fixed;
+      top: 50%;
+      bottom: 50%;
+      left: 50%;
+      right: 50%;
     }
   </style>
   <body>
     <div class="gameContainer">
       <div class="playerSelection">
-        <button id="rock" class="rock">Rock</button>
-        <button id="paper" class="paper">Paper</button>
-        <button id="scissors" class="scissors">Scissors</button>
+        <button id="rock" class="rock">&#9994</button>
+        <button id="paper" class="paper">&#9995</button>
+        <button id="scissors" class="scissors">&#9996</button>
       </div>
+      <div class="roundResult">Make your choice</div>
       <!-- selection -->
       <div class="selection">
         <div class="pcChoiceContainer">
@@ -100,7 +114,7 @@
         </div>
       </div>
       <!-- round result -->
-      <div class="roundResult"></div>
+      <div class="scoreHeader">Score:</div>
       <div class="results">
         <div>The score is</div>
         <div class="score">
@@ -112,10 +126,13 @@
           <div class="drawScore">0</div>
         </div>
       </div>
-      <div class="infobox">
+      <div class="infoButton">
         <button class="exclamation">!</button>
       </div>
-    </div>
+      <div class="modal">
+        <div class="modalHeader"></div>
+        <div class="modalBody"></div>
+      </div>
     <script src="script.js"></script>
   </body>
 </html>

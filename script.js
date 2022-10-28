@@ -26,12 +26,7 @@ scissorsButton.addEventListener("click", () => {
   singleRound();
   console.log(result);
 });
-// buttonArray.forEach((item) => {
-//   item.addEventListener("click", () => {
-//     playerScore += 1;
-//     document.querySelector(".playerScore").innerText = playerScore;
-//   });
-// });
+
 function getComputerChoice() {
   randomNumber = Math.random() * 10;
   if (randomNumber <= 3.33) {
@@ -47,7 +42,6 @@ function singleRound() {
   computerSelection = randomOutput;
   document.querySelector(".computerChoice").innerText = computerSelection;
   document.querySelector(".playerChoice").innerText = playerSelection;
-  // playerSelection = prompt("Rock, paper os scissors?");
 
   if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
     result = "Draw!";
@@ -102,12 +96,12 @@ function singleRound() {
   //checking result to change element style and to update score
 
   if (playerScore == 5) {
-    alert("You won!!! Congratz!!!");
+    alert("You won!");
     document.location.reload();
   }
 
   if (computerScore == 5) {
-    alert("PC won!!! You suck!!!");
+    alert("PC won!");
     document.location.reload();
   }
 }
