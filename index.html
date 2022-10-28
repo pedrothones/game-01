@@ -87,11 +87,37 @@
       width: 30px;
     }
     .modal{
-      position: fixed;
-      top: 50%;
-      bottom: 50%;
-      left: 50%;
-      right: 50%;
+      position: relative;
+      border: solid white 1px;
+      margin: 30px 35px ;
+      padding: 20px;
+    }
+    .modal .modalHeader{
+      border-bottom: solid white 2px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 32px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      
+    }
+    .modal .closeButton{
+      position: relative;
+      bottom: 20px;
+      left: 15px;
+
+      padding: 0;
+      border: solid white 1px;
+      height: 25px;
+      width: 25px;
+      flex-shrink: 3;
+      font-size: 15px;
+
+    }
+    .modal .modalBody{
+      text-align: center;
+
     }
   </style>
   <body>
@@ -130,8 +156,11 @@
         <button class="exclamation">!</button>
       </div>
       <div class="modal">
-        <div class="modalHeader"></div>
-        <div class="modalBody"></div>
+        <div class="modalHeader">Info
+
+         <button class="closeButton">&times;</button>
+        </div>
+        <div class="modalBody">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit omnis similique nesciunt voluptatum at commodi accusamus veniam ex molestiae sunt.</div>
       </div>
     <script src="script.js"></script>
   </body>
