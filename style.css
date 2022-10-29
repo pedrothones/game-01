@@ -5,3 +5,157 @@
   background-color: black;
   color: white;
 }
+
+.game_container {
+  margin: 20px;
+  padding: 20px;
+}
+.rematch,
+.player_selection {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+.results,
+.selection {
+  border: solid 2px wheat;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 26px;
+  flex-wrap: wrap;
+}
+.rematch_text,
+.winner,
+.winner_emoji,
+.round_result,
+.score_header {
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  margin: 30px 0px;
+  color: gold;
+}
+
+.closed_items {
+  max-height: 0;
+}
+
+.winner,
+.winner_emoji {
+  font-weight: 500;
+  font-size: 60px;
+  color: white;
+}
+.results p {
+  display: flex;
+}
+
+.score {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.score .player_score,
+.computer_score,
+.draw_score {
+  position: relative;
+}
+.score_p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.results {
+  flex-direction: column;
+}
+
+.player_choice,
+.computer_choice,
+.player_score,
+.computer_score,
+.draw_score {
+  color: gold;
+}
+button {
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  border: solid white 4Q;
+  color: white;
+  border-radius: 50%;
+  font-weight: bolder;
+  height: 100px;
+  width: 100px;
+}
+.info_button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 10px;
+}
+.exclamation {
+  padding: 12px;
+  margin: 0px;
+  border: solid white 3Q;
+  font-size: 20px;
+  height: 30px;
+  width: 30px;
+}
+.modal {
+  transform: scale(0);
+  position: relative;
+  border: solid white 1px;
+  margin: 30px 35px;
+  padding: 20px;
+}
+.active {
+  transform: scale(1);
+}
+.modal .modal_header {
+  border-bottom: solid white 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+.modal .close_button {
+  position: relative;
+  bottom: 20px;
+  left: 15px;
+  padding: 0;
+  border: solid white 1px;
+  height: 22px;
+  width: 22px;
+  flex-shrink: 3;
+  font-size: 15px;
+}
+.modal .modal_body {
+  text-align: center;
+  font-size: 18px;
+}
+.rematch_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+
+.rematch_button {
+  border-color: gold;
+  color: gold;
+}
+.rematch_text {
+  color: white;
+}

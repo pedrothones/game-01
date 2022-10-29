@@ -1,14 +1,14 @@
 const rockButton = document.querySelector(".rock");
 const paperButton = document.querySelector(".paper");
 const scissorsButton = document.querySelector(".scissors");
-const buttonArray = [rockButton, paperButton, scissorsButton];
 const exclamation = document.querySelector(".exclamation");
-const closeButton = document.querySelector(".closeButton");
+const closeButton = document.querySelector(".close_button");
 const modal = document.querySelector(".modal");
 const winner = document.querySelector(".winner");
-const winnerEmoji = document.querySelector(".winnerEmoji");
-const playerSelectionDiv = document.querySelector(".playerSelection");
-const rematchText = document.querySelector(".rematchText");
+const winnerEmoji = document.querySelector(".winner_emoji");
+const playerSelectionDiv = document.querySelector(".player_selection");
+const rematchText = document.querySelector(".rematch_text");
+const topItems = document.querySelector(".top_items");
 
 let counter = 0;
 let result = "";
@@ -46,8 +46,8 @@ function getComputerChoice() {
 function singleRound() {
   getComputerChoice();
   computerSelection = randomOutput;
-  document.querySelector(".computerChoice").innerText = computerSelection;
-  document.querySelector(".playerChoice").innerText = playerSelection;
+  document.querySelector(".computer_choice").innerText = computerSelection;
+  document.querySelector(".player_choice").innerText = playerSelection;
 
   if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
     result = "Draw!";
@@ -82,22 +82,22 @@ function singleRound() {
   ) {
     result = "You lose!";
   }
-  document.querySelector(".roundResult").innerHTML = result;
+  document.querySelector(".round_result").innerHTML = result;
 
   console.log(playerScore);
 
   if (result == "You win!") {
-    document.querySelector(".roundResult").style.color = "green";
+    document.querySelector(".round_result").style.color = "green";
     playerScore += 1;
-    document.querySelector(".playerScore").innerText = playerScore;
+    document.querySelector(".player_score").innerText = playerScore;
   } else if (result == "You lose!") {
-    document.querySelector(".roundResult").style.color = "red";
+    document.querySelector(".round_result").style.color = "red";
     computerScore += 1;
-    document.querySelector(".computerScore").innerText = computerScore;
+    document.querySelector(".computer_score").innerText = computerScore;
   } else {
-    document.querySelector(".roundResult").style.color = "violet";
+    document.querySelector(".round_result").style.color = "violet";
     drawScore += 1;
-    document.querySelector(".drawScore").innerText = drawScore;
+    document.querySelector(".draw_score").innerText = drawScore;
   }
   //checking result to change element style and to update score
 
@@ -114,23 +114,17 @@ function singleRound() {
   }
   if (computerScore == 5 || playerScore == 5) {
     playerSelectionDiv.remove();
+    topItems.classList.remove("closed_items");
+    topItems.style.transition = "transform 1s";
     rematchText.innerHTML = "Rematch?";
-    document.querySelector(".roundResult").remove();
+    document.querySelector(".round_result").remove();
     const rematchButton = document.createElement("button");
-    document.querySelector(".rematchContainer").appendChild(rematchButton);
+    document.querySelector(".rematch_container").appendChild(rematchButton);
     rematchButton.innerHTML = "&#128257";
     rematchButton.addEventListener("click", () => location.reload());
   }
 }
 
-function playFiveRounds() {
-  for (i = 0; i < 5; i++) {
-    singleRound();
-    console.log("You choose " + playerSelection);
-    console.log("Computer choose " + computerSelection);
-    console.log(result);
-  }
-}
 exclamation.addEventListener(
   "mouseenter",
   () => (exclamation.style.borderColor = "gray")
