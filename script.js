@@ -3,6 +3,12 @@ const paperButton = document.querySelector(".paper");
 const scissorsButton = document.querySelector(".scissors");
 const buttonArray = [rockButton, paperButton, scissorsButton];
 const exclamation = document.querySelector(".exclamation");
+const closeButton = document.querySelector(".closeButton");
+const modal = document.querySelector(".modal");
+const winner = document.querySelector(".winner");
+const winnerEmoji = document.querySelector(".winnerEmoji");
+const playerSelectionDiv = document.querySelector(".playerSelection");
+const rematchText = document.querySelector(".rematchText");
 
 let counter = 0;
 let result = "";
@@ -96,13 +102,24 @@ function singleRound() {
   //checking result to change element style and to update score
 
   if (playerScore == 5) {
-    alert("You won!");
-    document.location.reload();
+    winner.innerText = "You won!";
+    winner.style.color = "green";
+    winnerEmoji.innerHTML = "&#128526";
   }
 
   if (computerScore == 5) {
-    alert("PC won!");
-    document.location.reload();
+    winner.innerText = "PC won!";
+    winner.style.color = "red";
+    winnerEmoji.innerHTML = "&#128546";
+  }
+  if (computerScore == 5 || playerScore == 5) {
+    playerSelectionDiv.remove();
+    rematchText.innerHTML = "Rematch?";
+    document.querySelector(".roundResult").remove();
+    const rematchButton = document.createElement("button");
+    document.querySelector(".rematchContainer").appendChild(rematchButton);
+    rematchButton.innerHTML = "&#128257";
+    rematchButton.addEventListener("click", () => location.reload());
   }
 }
 
@@ -114,9 +131,16 @@ function playFiveRounds() {
     console.log(result);
   }
 }
-exclamation.addEventListener("mouseenter", () => {
-  exclamation.style.borderColor = "lightgray";
+exclamation.addEventListener(
+  "mouseenter",
+  () => (exclamation.style.borderColor = "gray")
+);
+exclamation.addEventListener(
+  "mouseleave",
+  () => (exclamation.style.borderColor = "white")
+);
+exclamation.addEventListener("click", () => {
+  modal.classList.toggle("active");
+  modal.style.transition = "transform 0.15s ";
 });
-exclamation.addEventListener("mouseleave", () => {
-  exclamation.style.borderColor = "white";
-});
+closeButton.addEventListener("click", () => modal.classList.remove("active"));

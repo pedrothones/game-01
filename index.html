@@ -16,38 +16,60 @@
       margin: 20px;
       padding: 20px;
     }
+    .rematch,
     .playerSelection {
       margin: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 50px;
+      flex-wrap: wrap;
     }
     .results,
     .selection {
       border: solid 2px wheat;
       padding: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 26px;
+      flex-wrap: wrap;
+      
     }
-
+    .rematchText,
+    .winner,
+    .winnerEmoji,
     .roundResult,
     .scoreHeader {
       font-size: 40px;
       display: flex;
       justify-content: center;
+      margin: 30px 0px;
+      color: gold;
+    }
+    .winner,
+    .winnerEmoji{
+      font-weight: 500;
+      font-size: 60px;
     }
     .results p {
       display: flex;
     }
-    .selection {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
+    
     .score {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+    }
+    .score .playerScore,.computerScore,.drawScore {
+      position: relative;
+      
+    }
+
+
+    .results{
+      flex-direction: column;
     }
 
     .playerChoice,
@@ -87,10 +109,15 @@
       width: 30px;
     }
     .modal{
+      transform: scale(0);
       position: relative;
       border: solid white 1px;
       margin: 30px 35px ;
       padding: 20px;
+    }
+    .active{
+      transform: scale(1);
+      
     }
     .modal .modalHeader{
       border-bottom: solid white 2px;
@@ -106,22 +133,39 @@
       position: relative;
       bottom: 20px;
       left: 15px;
-
       padding: 0;
       border: solid white 1px;
-      height: 25px;
-      width: 25px;
+      height: 22px;
+      width: 22px;
       flex-shrink: 3;
       font-size: 15px;
-
+      
     }
     .modal .modalBody{
       text-align: center;
-
+      
     }
-  </style>
+    .rematchContainer{
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      margin-bottom: 50px;
+    }
+    
+    .rematchButton {
+      border-color: gold;
+      color: gold;
+    }
+    </style>
   <body>
     <div class="gameContainer">
+      <div class="winnerContainer">
+        <div class="winner"></div>
+        <div class="winnerEmoji"></div>
+      </div>
+      <div class="rematchContainer">
+        <div class="rematchText"></div>
+      </div>
       <div class="playerSelection">
         <button id="rock" class="rock">&#9994</button>
         <button id="paper" class="paper">&#9995</button>
@@ -142,13 +186,12 @@
       <!-- round result -->
       <div class="scoreHeader">Score:</div>
       <div class="results">
-        <div>The score is</div>
         <div class="score">
-          <p>PC:</p>
+          <div class="score_p">PC:</div>
           <div class="computerScore">0</div>
-          <p>Player:</p>
+          <div class="score_p">Player:</div>
           <div class="playerScore">0</div>
-          <p>Draw:</p>
+          <div class="score_p">Draw:</div>
           <div class="drawScore">0</div>
         </div>
       </div>
@@ -157,10 +200,9 @@
       </div>
       <div class="modal">
         <div class="modalHeader">Info
-
          <button class="closeButton">&times;</button>
         </div>
-        <div class="modalBody">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit omnis similique nesciunt voluptatum at commodi accusamus veniam ex molestiae sunt.</div>
+        <div class="modalBody">Take your pick by clicking at the desired weapon at the top of the screen in this simple Rock, Paper or Scissors game, first to 5 wins!</div>
       </div>
     <script src="script.js"></script>
   </body>
