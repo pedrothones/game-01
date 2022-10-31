@@ -125,14 +125,6 @@ function singleRound() {
   }
 }
 
-exclamation.addEventListener(
-  "mouseenter",
-  () => (exclamation.style.borderColor = "gray")
-);
-exclamation.addEventListener(
-  "mouseleave",
-  () => (exclamation.style.borderColor = "white")
-);
 exclamation.addEventListener("click", () => {
   modal.classList.toggle("active");
   modal.style.transition = "transform 0.15s ";

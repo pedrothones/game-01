@@ -97,6 +97,10 @@ button {
   height: 100px;
   width: 100px;
 }
+button:hover {
+  border-color: gray;
+  color: lightgray;
+}
 .info_button {
   display: flex;
   justify-content: flex-end;
